@@ -9,13 +9,13 @@ public class TravelTimeCalculator {
 		while (choice.equalsIgnoreCase("y")) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter miles:\t ");
-		int miles = sc.nextInt();
+		double miles = sc.nextInt();
 		System.out.print("Enter miles per hour: ");
-		int mph = sc.nextInt();
+		double mph = sc.nextInt();
 		double totalTime = miles/mph;
 		int hours = (int)totalTime;
-		double remainder = totalTime - hours;
-		int minutes = (int)((remainder) * 60);
+		//double remainder = totalTime - hours;
+		int minutes = (int)((totalTime-hours)* 60);
 		
 		System.out.println("\nEstimated travel time");
 		System.out.println("---------------------");
