@@ -12,11 +12,11 @@ public class TableOfPowers {
 			
 			System.out.print("Enter an integer ");
 			int nbr = sc.nextInt();
-			int nbrSq = nbr*nbr;
-			int nbrCb = nbr*nbr*nbr;
+//			int nbrSq = nbr*nbr;
+//			int nbrCb = nbr*nbr*nbr;
 			System.out.println("Number\t\tSquared\t\tCubed");
 			System.out.println("======\t\t=======\t\t=====");
-			for (int i = i = 1; i<=nbr; i++) {
+			for (int i = 1; i<=nbr; i++) {
 				System.out.println(i +"\t\t" + i*i + "\t\t" + i*i*i);
 			}
 			
@@ -25,6 +25,7 @@ public class TableOfPowers {
 			choice = sc.nextLine();
 			
 		}
+		
 				System.out.println("\nBye");
 
 	}
