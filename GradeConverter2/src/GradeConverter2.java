@@ -10,14 +10,14 @@ public class GradeConverter2 {
 		String choice = "y";
 		while (choice.equalsIgnoreCase("y")) {
 		//prompt for number grade
-			int number = MyConsole.promptInt("Enter numerical grade: ");
+			int number = MyConsole.promptInt("\nEnter numerical grade: ",1,100);
 			MyConsole.printLine("Letter grade: "+ Grade.getLetter(number));
 		//call method for letterGrade
 		
 		
 		
 		
-		choice = MyConsole.promptString("Continue? (y/n): ");
+		choice = MyConsole.promptString("\nContinue? (y/n): ");
 		}
 		
 		MyConsole.printLine("\nBye");
