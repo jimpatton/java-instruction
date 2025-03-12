@@ -10,68 +10,65 @@ public class Hangman {
 
 	public static void main(String[] args) {
 		MyConsole.printHeader("Hangman");
-		
 
 		String choice = "y";
-		while (choice.equalsIgnoreCase("y")) 
-		{
+		while (choice.equalsIgnoreCase("y")) {
 			HangmanWords hangmanWords = new HangmanWords();
 			String theWord = hangmanWords.getRandomWord();
 			String hiddenWord = hangmanWords.getHiddenWord(theWord);
 			int incorrectGuesses = 0;
 			boolean wordGuessed = false;
 			List<String> lettersGuessed = new ArrayList<>();
-		
-			while (hiddenWord.indexOf("_") >= 0) 
-			{
+			while (incorrectGuesses != 6 && !wordGuessed) {
+
 				hangmanWords.displayHiddenWord(hiddenWord);
 				// guess a letter
-				String guess = MyConsole.promptString("Letter guess: ");
+				String letterGuess = MyConsole.promptString("Letter guess: ");
 				// resolve letter in hiddenWord or display msg incorrectGuess
 				char[] chars = theWord.toCharArray();
 				char[] hiddenChars = hiddenWord.toCharArray();
-				
-				if (theWord.indexOf(guess.charAt(0)) == -1) 
-				{
+
+				if (theWord.indexOf(letterGuess.charAt(0)) == -1) {
 					MyConsole.printLine("Incorrect guess");
+					// increment incorrectguesses
+					incorrectGuesses++;
+					// display hangman image					
+					MyConsole.print(populateImage(incorrectGuesses));
+										
 					
-				} 
-				else 
-				{
-					for (int i = 0; i < chars.length; i++) 
-					{
-						if (guess.charAt(0) == chars[i]) 
-						{
-							hiddenChars[i] = guess.charAt(0);
+					
+					
+					
+
+					MyConsole.printLine("Incorrect guesses: " + incorrectGuesses);
+
+				} else {
+					for (int i = 0; i < chars.length; i++) {
+						if (letterGuess.charAt(0) == chars[i]) {
+							hiddenChars[i] = letterGuess.charAt(0);
 						}
 					}
 					hiddenWord = String.valueOf(hiddenChars);
+					// is the word guessed?
+					// how many underscores are left in hiddenWord?
+					if (hiddenWord.indexOf('_') == -1) {
+						wordGuessed = true;
+					}
+					
 				}
-				
 
 			}
 			choice = MyConsole.promptString("Play again? (y/n): ");
 		}
-
-		populateImage();
-
-		for (int i = 0; i < image.length; i++) 
-		{
-			MyConsole.printLine(image[i]);
-			MyConsole.printLine();
-		}
-
-		
 		MyConsole.printLine("\nBye");
 	}
 
-	private static String getHangmanImage(int incorrectGuesses) 
-	{
-		return image[incorrectGuesses];
-	}
+//	private String getHangmanImage(int incorrectGuesses) 
+//	{
+//		return image[incorrectGuesses];
+//	
 
-	public static void populateImage() 
-	{
+	public static String populateImage(int incorrectGuesses) {
 		image[0] = """
 				-----
 				|   |
@@ -135,6 +132,7 @@ public class Hangman {
 				|
 				-----
 				""";
+		return image[incorrectGuesses];
 
 	}
 
