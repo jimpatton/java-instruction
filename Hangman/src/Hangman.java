@@ -37,13 +37,8 @@ public class Hangman {
 					// increment incorrectguesses
 					incorrectGuesses++;
 					// display hangman image					
-					MyConsole.print(populateImage(incorrectGuesses));
-										
+					MyConsole.print(populateImage(incorrectGuesses));										
 					
-					
-					
-					
-
 					MyConsole.printLine("Incorrect guesses: " + incorrectGuesses);
 
 				} else {
@@ -63,8 +58,10 @@ public class Hangman {
 				}
 
 			}
-			if (wordGuessed == true)
+			if (wordGuessed == true) {
+				hangmanWords.displayHiddenWord(hiddenWord);
 				MyConsole.printLine("Congratulations, you guessed the word "+theWord+"!");
+			}
 			else
 				MyConsole.printLine("Sorry, the word was "+theWord);
 			choice = MyConsole.promptString("Play again? (y/n): ");
