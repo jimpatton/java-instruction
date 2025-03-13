@@ -22,9 +22,13 @@ public class Hangman {
 			while (incorrectGuesses != 6 && !wordGuessed) {
 
 				hangmanWords.displayHiddenWord(hiddenWord);
+				MyConsole.printLine ("Letters Guessed: "+lettersGuessed.toString().replace("[", "").replace("]", ""));
 				// guess a letter
 				String letterGuess = MyConsole.promptString("Letter guess: ");
 				// resolve letter in hiddenWord or display msg incorrectGuess
+				lettersGuessed.add(letterGuess);
+				lettersGuessed.sort(null);
+				
 				char[] chars = theWord.toCharArray();
 				char[] hiddenChars = hiddenWord.toCharArray();
 
@@ -48,6 +52,7 @@ public class Hangman {
 							hiddenChars[i] = letterGuess.charAt(0);
 						}
 					}
+					MyConsole.print(populateImage(incorrectGuesses));
 					hiddenWord = String.valueOf(hiddenChars);
 					// is the word guessed?
 					// how many underscores are left in hiddenWord?
@@ -58,15 +63,16 @@ public class Hangman {
 				}
 
 			}
+			if (wordGuessed == true)
+				MyConsole.printLine("Congratulations, you guessed the word "+theWord+"!");
+			else
+				MyConsole.printLine("Sorry, the word was "+theWord);
 			choice = MyConsole.promptString("Play again? (y/n): ");
 		}
 		MyConsole.printLine("\nBye");
 	}
 
-//	private String getHangmanImage(int incorrectGuesses) 
-//	{
-//		return image[incorrectGuesses];
-//	
+
 
 	public static String populateImage(int incorrectGuesses) {
 		image[0] = """
