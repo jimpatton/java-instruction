@@ -21,18 +21,22 @@ public class HackerRankJaveIfElseApp {
 	        
 	        for (int i = 1; i<=nbr; i++) {
 	        	if (nbr % 2 != 0) {
-	        		System.out.println("Weird");	        		
+	        		System.out.println("Weird");
+	        		break;
 	        	}
 	        	else if(nbr % 2== 0 && nbr < 5) {
 	        		System.out.println("Not Weird");
+	        		break;
 	        	}
 	        	else if (nbr % 2 ==0 && nbr<= 20) {
 	        		System.out.println("Weird");
+	        		break;
 	        	}
 	        	else if(nbr % 2 == 0 && nbr >20) {
 	        		System.out.println("Not Weird");
+	        		break;
 	        	}
-	        	scan.next();
+	        	scan.nextLine();
 	        	
 	        }
 
