@@ -58,13 +58,11 @@ public class TicTacToe {
 			if (winner == true)
 				break;
 
-			// ask if they want to play again
-			// if yes, reset board
-			// if no, exit
-			// if no winner, continue
+			
 			// if no winner and no more moves
 			// display tie
 			// check for tie
+			
 
 		}
 		choice = MyConsole.promptString("Do you want to play again? (y/n): ");
@@ -126,5 +124,7 @@ public class TicTacToe {
 		}
 		return winner;
 	}
-
+	
+      
 }
+

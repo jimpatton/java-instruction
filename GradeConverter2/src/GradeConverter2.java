@@ -17,7 +17,7 @@ public class GradeConverter2 {
 		
 		
 		
-		choice = MyConsole.promptString("\nContinue? (y/n): ");
+		choice = MyConsole.promptString("\nContinue? (y/n): " );
 		}
 		
 		MyConsole.printLine("\nBye");

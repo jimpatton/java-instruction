@@ -26,13 +26,13 @@ public class HackerRankPhoneBookMapApp {
 		{
 			String s=in.nextLine();
 			if (phonebook.containsKey(s)){
-				System.out.println(s+ " = " + phonebook.get(s));
+				System.out.println(s + "=" + phonebook.get(s));
 				}
 			else {
-				System.out.println("Not Found");
+				System.out.println("Not found");
 			}
 		}
-		
+		in.close();
 	}
 
 }

@@ -33,7 +33,7 @@ public class GradeConverter {
 			sc.nextLine();			
 			System.out.println("\nContinue? (y/n)");
 			choice = sc.nextLine();
-		};
+		}
 		
 		
 		System.out.println("\nBye");

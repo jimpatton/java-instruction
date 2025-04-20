@@ -26,7 +26,7 @@ public class MakeChocolate {
 	public static int makeChocolate(int small, int big, int goal) {
 		int smallBars = goal - (big * 5);
 		if (smallBars <= small) {
-			MyConsole.printLine("The number of small bars needed for goal is: " + smallBars);
+//			MyConsole.printLine("The number of small bars needed for goal is: " + smallBars);
 		} else {
 			smallBars = -1;
 		}

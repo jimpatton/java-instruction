@@ -24,7 +24,6 @@ public class InterestCalculator {
 
 			// print loan amount in currency
 			MyConsole.printLine("\nLoan amount:\t\t" + loanAmount.format(loan));
-			;
 			// print interest rate in percent to 3 decimal places
 			MyConsole.printLine("Interest rate:\t\t" + interestRate.format(rate));
 			// print interest in currency

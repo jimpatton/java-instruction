@@ -7,35 +7,37 @@ public class Palindrome {
 		Scanner scanner = new Scanner(System.in);
 //		MyConsole.printHeader("Palindrome checker");
 		// number must be a palindrome
-		int nbr = 0;
+		int x = 0;
 		boolean palindrome = false;
 		while (!palindrome) {
-			System.out.print("\nEnter a number: ");
-			nbr = scanner.nextInt();
-			if (reversed(nbr)) {
-				System.out.print("The number " + nbr + " is a palindrome.");
+//			System.out.print("\nEnter a number: ");
+			x = scanner.nextInt();
+			//check if the number is a palindrome
+			palindrome = isPalindrome(x);
+			//print the result
+			if (palindrome) {
+				System.out.println("true");
 			} else {
-				System.out.print("The number " + nbr + " is not a palindrome.");
+				System.out.println("false");
 			}
 		}
 
 	}
 
-	private static boolean reversed(int nbr) {
-		// reverse the number
-		int reversed = 0;
-		int original = nbr;
-		while (nbr != 0) {
-			int digit = nbr % 10;
-			reversed = reversed * 10 + digit;
-			nbr /= 10;
-		}
-
-		// check if the number is a palindrome
-		if (original == reversed) {
+	public static boolean isPalindrome(int x) {
+		//convert the number to string
+		String str = Integer.toString(x);
+		//reverse the string
+		String reversed = new StringBuilder(str).reverse().toString();
+		//compare the original string with the reversed string
+		if (str.equals(reversed)) {
 			return true;
 		} else {
 			return false;
+		
+		
 		}
+
+
 	}
 }
