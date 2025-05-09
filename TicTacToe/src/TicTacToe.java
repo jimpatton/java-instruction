@@ -10,62 +10,90 @@ public class TicTacToe {
 //		 
 		String choice = "y";
 		while (choice.equalsIgnoreCase("y")) {
-
+			board = new String[][] { { " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " } };
 			boolean winner = false;
+			while (!winner && !isBoardFull()) {
 			// alternate between x and o
 			displayBoard();
 			// get user entry(position on board
 			MyConsole.printLine("X's turn");
+			boolean validMove = false;
+			while (!validMove) {
+			int row = MyConsole.promptInt("Enter row (1,2,3): ", 1, 3)-1;
+//			row--;
+			int col = MyConsole.promptInt("Enter column (1,2,3): ", 1, 3)-1;
+//			col--;
+			if (board[row][col].isBlank()) {
+				board[row][col] = "X";
+				validMove = true;
+				
+			} else {
+				// check to see if spot already taken
+				MyConsole.printLine("Spot already taken, choose again");
+				row = MyConsole.promptInt("Enter row (1,2,3): ", 1, 3)-1;
+//				row--;
+				col = MyConsole.promptInt("Enter column (1,2,3): ", 1, 3)-1;
+//				col--;
+			}
+			displayBoard();// place x/o on board
+//			board[row][col] = "X";
+			winner = checkWinner();
+			if (winner) {
+				break;
+			}
+			}
+			 if (winner ||isBoardFull()) break; 
+//			{
+//				MyConsole.printLine("It's a tie!");
+//				break;
+//			}
+			
+
+			MyConsole.printLine("O's turn");
+			validMove = false;
+			while(!validMove) {
 			int row = MyConsole.promptInt("Enter row (1,2,3): ", 1, 3);
 			row--;
 			int col = MyConsole.promptInt("Enter column (1,2,3): ", 1, 3);
 			col--;
 			if (board[row][col].isBlank()) {
-				board[row][col] = "X";
-			} else {
-				// check to see if spot already taken
-				MyConsole.printLine("Spot already taken, choose again");
-				row = MyConsole.promptInt("Enter row (1,2,3): ", 1, 3);
-				row--;
-				col = MyConsole.promptInt("Enter column (1,2,3): ", 1, 3);
-				col--;
-			}
-			displayBoard();// place x/o on board
-			board[row][col] = "X";
-			checkWinner();
-			if (winner == true)
-				break;
-
-			MyConsole.printLine("O's turn");
-			row = MyConsole.promptInt("Enter row (1,2,3): ", 1, 3);
-			row--;
-			col = MyConsole.promptInt("Enter column (1,2,3): ", 1, 3);
-			col--;
-			if (board[row][col].isBlank()) {
 				board[row][col] = "O";
+				validMove = true;
 			} else {
 				// check to see if spot already taken
 				MyConsole.printLine("Spot already taken, choose again");
-				row = MyConsole.promptInt("Enter row (1,2,3): ", 1, 3);
-				row--;
-				col = MyConsole.promptInt("Enter column (1,2,3): ", 1, 3);
-				col--;
+				row = MyConsole.promptInt("Enter row (1,2,3): ", 1, 3)-1;
+//				row--;
+				col = MyConsole.promptInt("Enter column (1,2,3): ", 1, 3)-1;
+//				col--;
 			}
 			displayBoard();// place x/o on board
-			board[row][col] = "O";
+//			board[row][col] = "O";
 			// check for winner			
 			winner = checkWinner();
-			if (winner == true)
+			if (winner) {
 				break;
+			}
+			}
+			if (winner ||isBoardFull()) break;
+//			{
+//				MyConsole.printLine("It's a tie!");
+//				break;
+//			}
+			
 
 			
 			// if no winner and no more moves
 			// display tie
 			// check for tie
+			if (!winner || isBoardFull()) 
+			{
+				MyConsole.printLine("It's a tie!");
+			}
 			
-
+			}
+			choice = MyConsole.promptString("Do you want to play again? (y/n): ");
 		}
-		choice = MyConsole.promptString("Do you want to play again? (y/n): ");
 	}
 //		//simulation
 //		//x in position 1,1
@@ -123,6 +151,21 @@ public class TicTacToe {
 			MyConsole.printLine("Winner is " + board[0][2]);
 		}
 		return winner;
+	}
+	
+	public static boolean isBoardFull() 
+	{
+		for (int r = 0; r<board.length; r++) 
+		{
+			for (int c = 0; c<board[r].length; c++) 
+			{
+				if (board [r][c].isBlank())
+				{
+					return false;
+				}
+				}
+		}
+		return true;
 	}
 	
       
