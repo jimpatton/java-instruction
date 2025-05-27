@@ -95,21 +95,7 @@ public class TicTacToe {
 			choice = MyConsole.promptString("Do you want to play again? (y/n): ");
 		}
 	}
-//		//simulation
-//		//x in position 1,1
-//		board[1][1] = "X";
-//		displayBoard();				
-//		//o in 0,2
-//		board[0][2] = "0";
-//		displayBoard();
-//		//x in 0,0
-//		board[0][0] = "X";
-//		displayBoard();
-//		//o in 1,2
-//		board[1][2] = "0";
-//		displayBoard();
-//		
-//		break;
+
 
 	private static void displayBoard() {
 		String boardString = boardBorder + "\n";
