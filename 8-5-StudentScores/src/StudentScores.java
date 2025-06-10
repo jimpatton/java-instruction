@@ -34,6 +34,7 @@ public class StudentScores {
 		{
 			System.out.println(student.toString());
 		}		
+		sc.close();
 		
 	}
 
